@@ -1,4 +1,52 @@
+################
+import os
+import ctypes
+import sys
+
+# venv_dir = "C:\\ProgramData\\MSIXPython_d90b81feyebxc\\comfy-venv"
+# site_packages = os.path.join(venv_dir, "Lib", "site-packages")
+
+# # Add site-packages to sys.path
+# sys.path.insert(0, site_packages)
+# sys.path.insert(0, 'C:\\ProgramData\\MSIXPython_d90b81feyebxc\\ComfyUI')
+
+
+# # Optional: override sys.prefix to match venv
+# sys.prefix = venv_dir
+
+# input("1 Press Enter to continue...")
+
+# def patch_torch_dlls():
+#     torch_lib = r"C:\ProgramData\MSIXPython_d90b81feyebxc\comfy-venv\Lib\site-packages\torch\lib"
+#     if hasattr(os, 'add_dll_directory'):
+#         os.add_dll_directory(torch_lib)
+#     else:
+#         os.environ["PATH"] = torch_lib + os.pathsep + os.environ.get("PATH", "")
+
+# patch_torch_dlls()
+
+# input("2 Press Enter to continue...")
+# rp = os.path.realpath(__file__, strict=True)
+# print("Real path: ", rp)
+# sys.exit()
+
+# from flask import Flask
+
+# app = Flask(__name__)
+
+# @app.route("/")
+# def hello_world():
+#     return "<p>Hello, World!</p>"
+
+# if __name__ == '__main__':
+#     app.run(debug=False, host='0.0.0.0', port=5003)
+
+# sys.exit()
+
+#############
+
 import comfy.options
+
 comfy.options.enable_args_parsing()
 
 import os
@@ -10,6 +58,8 @@ from app.logger import setup_logger
 import itertools
 import utils.extra_config
 import logging
+
+
 
 if __name__ == "__main__":
     #NOTE: These do not do anything on core ComfyUI which should already have no communication with the internet, they are for custom nodes.
