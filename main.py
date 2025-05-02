@@ -283,7 +283,7 @@ def start_comfyui(asyncio_loop=None):
     if args.quick_test_for_ci:
         exit(0)
 
-    os.makedirs(folder_paths.get_temp_directory(), exist_ok=True)
+    # os.makedirs(folder_paths.get_temp_directory(), exist_ok=True)
     call_on_start = None
     if args.auto_launch:
         def startup_server(scheme, address, port):
@@ -316,4 +316,4 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         logging.info("\nStopped server")
 
-    cleanup_temp()
+    # cleanup_temp()
