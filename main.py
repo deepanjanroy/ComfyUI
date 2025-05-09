@@ -250,11 +250,11 @@ def start_comfyui(asyncio_loop=None):
     Starts the ComfyUI server using the provided asyncio event loop or creates a new one.
     Returns the event loop, server instance, and a function to start the server asynchronously.
     """
-    if args.temp_directory:
-        temp_dir = os.path.join(os.path.abspath(args.temp_directory), "temp")
-        logging.info(f"Setting temp directory to: {temp_dir}")
-        folder_paths.set_temp_directory(temp_dir)
-    cleanup_temp()
+    # if args.temp_directory:
+    #     temp_dir = os.path.join(os.path.abspath(args.temp_directory), "temp")
+    #     logging.info(f"Setting temp directory to: {temp_dir}")
+    #     folder_paths.set_temp_directory(temp_dir)
+    # cleanup_temp()
 
     if args.windows_standalone_build:
         try:

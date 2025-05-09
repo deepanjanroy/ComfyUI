@@ -9,7 +9,9 @@ How to use:
 python sandbox.py main.py --temp_dir temp --allowed_dir output --allowed_dir user --allowed_dir input
 
 This will run main.py in a python process with low integrity level.
---temp_dir creates a temp directory and deletes if after execution. This used to be done in main.py, but low integrity process cannot create directories in arbitrary locations, hence moved to sandbox code.
+--temp_dir creates a temp directory and deletes if after execution. This used to
+be done in main.py, but low integrity process cannot create directories in
+arbitrary locations, hence moved to sandbox code.
 --allowed_dir gives the process write access to the specified directory (can be
 specified multiple times for multiple directories).
 
@@ -195,4 +197,7 @@ if __name__ == "__main__":
     if args.temp_dir:
         for temp_dir in args.temp_dir:
             print(f"Deleting temp directory {temp_dir}")
-            shutil.rmtree(temp_dir)
+            try:
+                shutil.rmtree(temp_dir)
+            except FileNotFoundError:
+                print(f"Warning: Temp directory {temp_dir} does not exist")
